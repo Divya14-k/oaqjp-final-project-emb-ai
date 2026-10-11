@@ -1,0 +1,26 @@
+$ python3 -m unittest -v test_emotion_detection.py
+test_afraid_statement_is_fear (test_emotion_detection.EmotionDetectorTests.test_afraid_statement_is_fear)
+The fifth required sentence is classified as fear. ... ok
+test_blank_input_is_not_sent_to_service (test_emotion_detection.EmotionDetectorTests.test_blank_input_is_not_sent_to_service)
+Blank input is rejected before an HTTP request is made. ... ok
+test_disgust_statement_is_disgust (test_emotion_detection.EmotionDetectorTests.test_disgust_statement_is_disgust)
+The third required sentence is classified as disgust. ... ok
+test_glad_statement_is_joy (test_emotion_detection.EmotionDetectorTests.test_glad_statement_is_joy)
+The first required sentence is classified as joy. ... ok
+test_mad_statement_is_anger (test_emotion_detection.EmotionDetectorTests.test_mad_statement_is_anger)
+The second required sentence is classified as anger. ... ok
+test_missing_predictions_raise_clear_error (test_emotion_detection.EmotionDetectorTests.test_missing_predictions_raise_clear_error)
+An unexpected empty Watson payload is surfaced clearly. ... ok
+test_sad_statement_is_sadness (test_emotion_detection.EmotionDetectorTests.test_sad_statement_is_sadness)
+The fourth required sentence is classified as sadness. ... ok
+test_server_rejects_blank_input (test_emotion_detection.EmotionDetectorTests.test_server_rejects_blank_input)
+The Flask route reports blank text as a client error. ... ok
+test_server_returns_formatted_emotions (test_emotion_detection.EmotionDetectorTests.test_server_returns_formatted_emotions)
+The Flask route returns formatted model data as JSON. ... ok
+test_status_400_returns_empty_result (test_emotion_detection.EmotionDetectorTests.test_status_400_returns_empty_result)
+A service-side bad request returns the required None values. ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.009s
+
+OK

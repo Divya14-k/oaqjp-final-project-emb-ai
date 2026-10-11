@@ -1,32 +1,53 @@
-<html>
-<head>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="./static/mywebscript.js"></script>
-    <style>
-        .center-heading {
-            text-align: center;
-        }
-    </style>
-</head>
-<body>
-    <div class="card">
-        <div class="card-body">
-            <h1 class="center-heading">NLP - Emotion Detection</h1> 
-            <div style="padding: 25px 25px 25px 25px;">
-            <h2 class="mb-3">
-                <label class="form-label">Please enter the text to be analyzed</label>
-                <input type="textarea" class="form-control" id="textToAnalyze">
-            </h2>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f7">
+    <title>Emotion Detector | Watson NLP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
+    <script src="{{ url_for('static', filename='mywebscript.js') }}" defer></script>
+  </head>
+  <body>
+    <main class="page-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="Emotion Detector home">
+          <span class="brand-mark" aria-hidden="true">E</span>
+          <span>Watson NLP</span>
+        </a>
+        <span class="model-tag"><span class="status-dot"></span> Emotion model</span>
+      </header>
 
-            <div style="padding: 25px 25px 25px 25px;">
-                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
-            </div>
-            <div style="padding: 25px 25px 25px 25px;"></div>
-            <h2 class="mb-3">
-                <label class="form-label">Result of Emotion Detection</label>
-            </h2>
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Understand the feeling behind the words</p>
+        <h1 id="page-title">Emotion Detector</h1>
+        <p class="intro">Enter a sentence and Watson NLP will score five emotions and identify the strongest one.</p>
 
-            <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
+        <form id="analysis-form" class="analysis-card">
+          <label for="textToAnalyze">Your text</label>
+          <textarea id="textToAnalyze" name="textToAnalyze" rows="4" maxlength="1000" placeholder="For example: I am excited to try something new." aria-describedby="input-help"></textarea>
+          <div class="form-footer">
+            <span id="input-help">Up to 1,000 characters</span>
+            <button id="analyze-button" type="submit">
+              <span>Analyze emotion</span><span aria-hidden="true">→</span>
+            </button>
+          </div>
+        </form>
+      </section>
+
+      <section class="result-card" aria-live="polite" aria-labelledby="result-title">
+        <div class="result-heading">
+          <div>
+            <p class="eyebrow">Analysis</p>
+            <h2 id="result-title">Your results</h2>
+          </div>
+          <span id="result-state" class="result-state">Ready</span>
         </div>
-    </div>
-</body>
+        <p id="result-message" class="result-message">Add a sentence above to see its emotion profile.</p>
+        <div id="emotion-results" class="emotion-results" hidden></div>
+      </section>
+
+      <footer>Powered by IBM Watson Natural Language Processing</footer>
+    </main>
+  </body>
+</html>
